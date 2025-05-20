@@ -1,0 +1,23 @@
+services:
+  - name: payment-service
+    image: maheshgowdamg25/payment-service
+    tag: latest
+    port: 9001
+    type: ClusterIP
+    targetPort: 9001
+    path: /payment
+    ingress:
+      enabled: true
+#----------------------
+  - name: user-service
+    image: maheshgowdamg25/user-service
+    tag: latest
+    port: 9002
+    type: ClusterIP
+    targetPort: 9002
+    path: /user1
+    ingress:
+      enabled: true
+
+
+
