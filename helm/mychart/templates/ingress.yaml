@@ -22,7 +22,7 @@ spec:
                   number: {{ .port }}
 
           # Metrics path
-          - path: /actuator/prometheus
+          - path: {{ .path }}/actuator/prometheus
             pathType: Prefix
             backend:
               service:
