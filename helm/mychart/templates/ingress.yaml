@@ -19,5 +19,14 @@ spec:
                 name: {{ .name }}
                 port:
                   number: {{ .port }}
+
+          # Add this path for metrics:
+          - path: /actuator/prometheus
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .name }}
+                port:
+                  number: {{ .metricsPort | default .port }}
 {{- end }}
 {{- end }}
