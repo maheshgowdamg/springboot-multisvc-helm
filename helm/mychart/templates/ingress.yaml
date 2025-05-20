@@ -12,6 +12,7 @@ spec:
   rules:
     - http:
         paths:
+          # Main app path
           - path: {{ .path }}(/|$)(.*)
             pathType: Prefix
             backend:
@@ -20,13 +21,13 @@ spec:
                 port:
                   number: {{ .port }}
 
-          # Add this path for metrics:
+          # Metrics path
           - path: /actuator/prometheus
             pathType: Prefix
             backend:
               service:
                 name: {{ .name }}
                 port:
-                  number: {{ .metricsPort | default .port }}
+                  number: {{ .port }}
 {{- end }}
 {{- end }}
