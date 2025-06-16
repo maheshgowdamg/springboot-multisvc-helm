@@ -24,3 +24,8 @@ spec:
          
 {{- end }}
 {{- end }}
+
+
+
+###first install ingress-controller 
+
